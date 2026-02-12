@@ -6,36 +6,21 @@
 <title>С 14 февраля ❤️</title>
 
 <style>
-html, body {
+body {
     margin: 0;
     padding: 0;
-    height: 100%;
     font-family: 'Segoe UI', sans-serif;
-    overflow: hidden;
-}
-
-body {
     background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffdde1);
     background-size: 400% 400%;
     animation: gradientMove 12s ease infinite;
+    overflow-x: hidden;
 }
 
-/* Градиент */
+/* Движение градиента */
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
-}
-
-/* Видео фон */
-#loveVideo {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
 }
 
 /* Стартовый экран */
@@ -75,18 +60,26 @@ body {
     transform: scale(1.1);
 }
 
-/* Основной контент */
+/* Основной блок */
 .card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    position: relative;
+    top: 60px; /* чуть ниже верхней части экрана */
     text-align: center;
     color: #b3003c;
     padding: 10px;
     max-width: 90vw;
+    margin: auto;
 }
 
+video {
+    width: 320px; /* фиксированный размер видео */
+    max-width: 90vw;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.9);
+    margin-bottom: 15px;
+}
+
+/* Текст */
 h1 {
     font-size: 1.8rem;
     margin-bottom: 10px;
@@ -101,6 +94,7 @@ p {
 @media (max-width: 480px) {
     h1 { font-size: 1.5rem; }
     p { font-size: 0.95rem; line-height: 1.2rem; }
+    .card { top: 50px; }
 }
 </style>
 </head>
@@ -111,19 +105,18 @@ p {
     <source src="love.mp3" type="audio/mpeg">
 </audio>
 
-<!-- Видео фон -->
-<video id="loveVideo" loop muted playsinline>
-    <source src="love.mp4" type="video/mp4">
-</video>
-
 <!-- Стартовый экран -->
 <div id="startScreen">
     <h2>Перед тем как открыть, хочу сказать 💖</h2>
     <button onclick="startLove()">💘 С 14 Февраля 💘</button>
 </div>
 
-<!-- Основной текст -->
+<!-- Основной контент -->
 <div class="card" id="mainCard" style="display:none;">
+    <video id="loveVideo" loop playsinline>
+        <source src="love.mp4" type="video/mp4">
+    </video>
+
     <h1>С 14 февраля ❤️</h1>
     <p>
         «Дорогая Бахари,<br>
@@ -142,9 +135,8 @@ function startLove(){
     const startScreen = document.getElementById("startScreen");
     const mainCard = document.getElementById("mainCard");
 
-    // Включаем звук после клика (iOS требует действия пользователя)
+    // Включаем звук после клика
     music.play().catch(()=>{});
-    video.muted = false; // можно включить звук, если нужно
     video.play();
 
     startScreen.style.display="none";
