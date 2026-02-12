@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>С 14 февраля ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #ffdde1);
+    background-size: 400% 400%;
+    animation: gradientMove 12s ease infinite;
+}
+
+/* Движение градиента */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Летающие сердечки */
+.heart {
+    position: absolute;
+    color: rgba(255, 0, 80, 0.7);
+    animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* Большое сердце */
+.big-heart {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 200px;
+    color: rgba(255, 0, 90, 0.08);
+    animation: pulse 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.1); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Цветочки */
+.flower {
+    position: absolute;
+    font-size: 24px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* Стартовый экран */
+#startScreen {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, #ff758c, #ff7eb3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 1000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+#startScreen h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+#startScreen button {
+    padding: 15px 25px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 30px;
+    background: white;
+    color: #ff4d6d;
+    cursor: pointer;
+    box-shadow: 0 0 20px pink;
+    transition: 0.3s;
+}
+
+#startScreen button:hover {
+    transform: scale(1.1);
+}
+
+/* Основной блок */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #b3003c;
+    opacity: 0;
+    transition: 2s;
+    padding: 10px;
+}
+
+.card.show {
+    opacity: 1;
+}
+
+video {
+    width: 90vw;
+    max-width: 400px;
+    border-radius: 20px;
+    box-shadow: 0 0 40px rgba(255,255,255,0.9);
+    margin-bottom: 15px;
+}
+
+/* Текст */
+h1 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    max-width: 90vw;
+    margin: auto;
+    line-height: 1.4rem;
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 480px) {
+    #startScreen h2 {
+        font-size: 1.2rem;
+    }
+    #startScreen button {
+        font-size: 1rem;
+        padding: 12px 20px;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 0.9rem;
+        line-height: 1.2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+</audio>
+
+<div id="startScreen">
+    <h2>Перед тем как ты откроешь меня хочу сказать 💖</h2>
+    <button onclick="startLove()">💘 С 14 Февраля 💘</button>
+</div>
+
+<div class="card" id="mainCard">
+    <video id="loveVideo" loop playsinline>
+        <source src="love.mp4" type="video/mp4">
+    </video>
+
+    <h1>С 14 февраля ❤️</h1>
+    <p>
+        «Дорогая Бахари,<br>
+С 14 февраля! В этот особенный день я хочу сказать тебе, что даже если мы ещё не встретились, я уже представляю твою улыбку, твой смех и то тепло, которое ты приносишь в этот мир.<br>
+Я мечтаю о том дне, когда смогу обнять тебя и сказать все слова, которые сейчас храню в сердце. Пусть каждый момент этого дня наполнен радостью, нежностью и маленькими чудесами.<br>
+Бахари, мир станет ярче, а каждый день будет наполнен счастьем и смехом. Сегодня я хочу пожелать тебе улыбок, вдохновения и невероятной красоты внутри и снаружи.<br>
+Ты заслуживаешь всего самого светлого, <br>
+С 14 февраля, Бахари! 💖 Пусть твое сердце всегда светится радостью, а жизнь будет наполнена любовью, которую ты так достойно заслуживаешь.»
+    </p>
+</div>
+
+<div class="big-heart">❤️</div>
+
+<script>
+function startLove(){
+    let music = document.getElementById("bgMusic");
+    let video = document.getElementById("loveVideo");
+
+    music.play();
+    video.play();
+
+    document.getElementById("startScreen").style.display="none";
+    document.getElementById("mainCard").classList.add("show");
+}
+
+/* Сердечки */
+for(let i=0;i<40;i++){
+    let heart = document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.fontSize=(15+Math.random()*25)+"px";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+}
+
+/* Цветочки */
+for(let i=0;i<30;i++){
+    let flower = document.createElement("div");
+    flower.className="flower";
+    flower.innerHTML="🌸";
+    flower.style.left=Math.random()*100+"vw";
+    flower.style.animationDuration=(6+Math.random()*6)+"s";
+    document.body.appendChild(flower);
+}
+</script>
+
+</body>
+</html>
