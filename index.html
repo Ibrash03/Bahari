@@ -35,24 +35,6 @@ body {
     100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
 }
 
-/* Большое сердце */
-.big-heart {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 200px;
-    color: rgba(255, 0, 90, 0.08);
-    animation: pulse 3s infinite;
-    pointer-events: none;
-}
-
-@keyframes pulse {
-    0% { transform: translate(-50%, -50%) scale(1); }
-    50% { transform: translate(-50%, -50%) scale(1.1); }
-    100% { transform: translate(-50%, -50%) scale(1); }
-}
-
 /* Цветочки */
 .flower {
     position: absolute;
@@ -105,7 +87,7 @@ body {
 /* Основной блок */
 .card {
     position: absolute;
-    top: 50%;
+    top: 55%; /* смещено ниже */
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
@@ -149,6 +131,9 @@ p {
         font-size: 1rem;
         padding: 12px 20px;
     }
+    .card {
+        top: 60%; /* ещё ниже для маленьких экранов */
+    }
     h1 {
         font-size: 1.5rem;
     }
@@ -186,8 +171,6 @@ p {
 С 14 февраля, Бахари! 💖 Пусть твое сердце всегда светится радостью, а жизнь будет наполнена любовью, которую ты так достойно заслуживаешь.»
     </p>
 </div>
-
-<div class="big-heart">❤️</div>
 
 <script>
 function startLove(){
